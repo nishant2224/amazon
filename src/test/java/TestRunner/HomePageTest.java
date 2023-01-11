@@ -100,19 +100,20 @@ public class HomePageTest extends BaseClass {
 	}
 	
 	@Test(priority=6)
-	public void highToLow()
+	public void highToLow() throws InterruptedException
 	{
 		//sort by price : high to low
 		homePage hm = new homePage();
 		hm.highToLow().click();	
+		Thread.sleep(5000);
 	}
 	
 	@Test(priority=7)
 	public void selectSecondItem() throws InterruptedException
 	{
-		//select the second last highest price item from the list 
+		//select the highest price item from the list 
 		homePage hm = new homePage();
-		hm.secondItem().click();		
+		hm.firstItem();
 		handles=driver.getWindowHandles();
 		Thread.sleep(5000);
 	}
@@ -122,12 +123,12 @@ public class HomePageTest extends BaseClass {
 	{
 		//Getting WindowHandles
 		homePage hm=new homePage();
-		WebElement aboutThisItem=hm.aboutThisItem();
+
 		
 		String parent=driver.getWindowHandle(); //getting current window handle
 		Set<String>s=driver.getWindowHandles(); //getting all handles
 		Iterator<String> I1= s.iterator();
-
+		WebElement aboutThisItem;
 		while(I1.hasNext())
 		{
 
@@ -135,6 +136,7 @@ public class HomePageTest extends BaseClass {
 		if(!parent.equals(child_window))
 		{
 		       driver.switchTo().window(child_window);
+		       aboutThisItem=hm.aboutThisItem();
 				//using js to scroll down vertically 							
 				JavascriptExecutor js = (JavascriptExecutor)driver;				
 				js.executeScript("arguments[0].scrollIntoView(true);",aboutThisItem);	//scroll till element is visible
@@ -153,7 +155,7 @@ public class HomePageTest extends BaseClass {
 	public void openTest()
 	{
 		//extent report create
-		report = new ExtentReports("C:\\Users\\SUKANNYA GHOSH\\eclipse-workspace\\amazon\\Reports\\amazon.html", true);
+		report = new ExtentReports("D:\\amazon\\Drivers\\Reports\\amazon.html", true);
 		test = report.startTest("amazon test report");		
 	}
 	

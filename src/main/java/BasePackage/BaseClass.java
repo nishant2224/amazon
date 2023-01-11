@@ -12,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.Browser;
-import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -28,7 +27,7 @@ public class BaseClass {
 		prop = new Properties();
 		FileInputStream fis = null;
 		try {
-			fis = new FileInputStream("C:\\Users\\Sukannya Ghosh\\eclipse-workspace\\amazon\\config.properties");
+			fis = new FileInputStream("D:\\amazon\\config.properties");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +74,7 @@ public class BaseClass {
 	else if(config.equalsIgnoreCase("local") && browserName.equalsIgnoreCase("chrome"))
 	{
 		System.out.println("running tests in local machine........");
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\SUKANNYA GHOSH\\eclipse-workspace\\amazon\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "D:\\amazon\\Drivers\\chromedriver.exe");
 		driver=new ChromeDriver();
 	}
 		driver.get(prop.getProperty("url"));//opening browser

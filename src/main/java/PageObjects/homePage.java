@@ -22,8 +22,8 @@ public class homePage extends BaseClass{
 	WebElement sort;
 	@FindBy(xpath="//a[text()='Price: High to Low']")
 	WebElement highToLow;
-	@FindBy(xpath="//div[@data-index='2']")
-	WebElement secondItem;
+	@FindBy(xpath="//div[@data-index='1']//div[contains(@class,'s-image-square')]//img")
+	WebElement firstItem;
 	@FindBy(xpath="//*[text()=' About this item ']")
 	WebElement aboutThisItem;
 	
@@ -31,9 +31,9 @@ public class homePage extends BaseClass{
 	{
 		return aboutThisItem;
 	}
-	public WebElement secondItem()
+	public void firstItem()
 	{
-		return secondItem;
+		firstItem.click();;
 	}
 	public WebElement brands()
 	{
